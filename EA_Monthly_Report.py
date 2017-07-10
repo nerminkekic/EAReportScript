@@ -62,9 +62,9 @@ def ea_monthly_report():
     work_sheet.column_dimensions["B"].width = 25.0
     work_sheet.column_dimensions["C"].width = 25.0
     work_sheet.column_dimensions["D"].width = 25.0
-    work_sheet.column_dimensions["E"].width = 40.0
-    work_sheet.column_dimensions["F"].width = 40.0
-    work_sheet.column_dimensions["G"].width = 40.0
+    work_sheet.column_dimensions["E"].width = 35.0
+    work_sheet.column_dimensions["F"].width = 35.0
+    work_sheet.column_dimensions["G"].width = 35.0
 
     # Obtain Exam Volume for all virtual archives and write the data to excel sheet.
     for archive in virtual_archives:
@@ -96,7 +96,7 @@ def ea_monthly_report():
     work_book.save(excel_filename)
 
     # Send email with attachment.
-    send_email(excel_filename)
+    # send_email(excel_filename)
 
 
 # Obtain Archive Names from SQL Server.
