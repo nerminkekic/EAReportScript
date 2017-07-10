@@ -260,5 +260,5 @@ def format_date(db_date):
         return dt.strftime("%b{}%y".format("-"))
 
 
-# Run program.
+# Run script.
 ea_monthly_report()
