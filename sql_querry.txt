@@ -1,0 +1,5 @@
+select convert(varchar(6), FirstArchiveDate, 112) as StudyYear, count(distinct id1) as TotalExam, sum(t.ByteSize/(1024*1024)) AS StudySizeMB
+from tblDICOMStudy s with (nolock), tblDICOMSeries se with (nolock), tblDICOMImage im with (nolock), tblFile t with (nolock) 
+where s.Id1 = se._Id1 and se.Id2 = im._Id2 and im._idFile = t.idFile
+group by convert(varchar(6), FirstArchiveDate, 112)
+order by convert(varchar(6), FirstArchiveDate, 112)
