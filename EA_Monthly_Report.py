@@ -96,7 +96,7 @@ def ea_monthly_report():
     work_book.save(excel_filename)
 
     # Send email with attachment.
-    # send_email(excel_filename)
+    send_email(excel_filename)
 
 
 # Obtain Archive Names from SQL Server.
@@ -218,8 +218,13 @@ def send_email(file_attachment):
     msg = MIMEMultipart("alternative")
 
     # Define email recipients
-    to_email = "nerminkekic@ge.com"
-    from_email = "nerminkekic@ge.com"
+    to_email = [
+        "nerminkekic@ge.com", "tai.kim@ge.com", "Connie.Moring@med.ge.com", "beth.costa@med.ge.com",
+        "eric.feingold@ge.com", "paul.macht@ge.com", "frederick.yu@ge.com", "Bill.Petersen@ge.com",
+        "Sridharan.Paidakula@med.ge.com"
+        ]
+    # Define From email
+    from_email = "aspmonitoring@ge.com"
 
     # Create email content
     msg["Subject"] = "ASP Monthly Report {}".format(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
@@ -227,7 +232,6 @@ def send_email(file_attachment):
     msg["To"] = to_email
     msg.attach(part)
     msg.attach(content)
-
     # Send email to SMTP server
     s = smtplib.SMTP("10.4.1.1", 25)
     s.sendmail(from_email, to_email, msg.as_string())
