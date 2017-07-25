@@ -80,7 +80,8 @@ def ea_monthly_report():
     work_book.save(excel_filename)
 
     # Send email with attachment.
-    send_email(excel_filename)
+    # send_email(excel_filename)
+    #
 
 
 # Obtain Archive Names from SQL Server.
@@ -127,31 +128,11 @@ def get_archives():
     return archive_list
 
 
-# Calculate last day of month
-def last_day_of_month(any_day):
-    """This function will return last day of the month.
-    """
-    current_month = any_day.replace(day=1)
-    return current_month - datetime.timedelta(days=current_month.day)
-
-
-# Calculate first day of month
-def first_day_of_month(any_day):
-    """This function will return first day of month. For the parameter it requires
-     output from last_day_of_month() function.
-     """
-    return any_day.replace(day=1)
-
-
 # Obtain archive volume.
 def archive_volume(db_name):
     """
     This function will obtain archive volume form SQL server.
     """
-    # Calculate first and last day of month.
-    today = datetime.date.today()
-    last_day = last_day_of_month(today)
-    first_and_last_month_day = [str(first_day_of_month(last_day)), str(last_day)]
 
     # Read file for credentials
     with open("data.txt", "r") as f:
