@@ -107,11 +107,15 @@ def get_archives():
     # Create list to store archive names.
     archive_list = []
 
+    # Read file for credentials
+    with open("data.txt", "r") as f:
+        read_data = f.readline().split()
+
     # Define data base connection parameters.
     sqlserver = 'SQL1'
     database = 'RSAdmin'
-    username = 'admin'
-    password = 'Bosnia66s'
+    username = read_data[0]
+    password = read_data[1]
 
     # Establish DB connections.
     conn = pyodbc.connect(
@@ -165,11 +169,15 @@ def archive_volume(db_name):
     last_day = last_day_of_month(today)
     first_and_last_month_day = [str(first_day_of_month(last_day)), str(last_day)]
 
+    # Read file for credentials
+    with open("data.txt", "r") as f:
+        read_data = f.readline().split()
+
     # Define data base connection parameters.
     sqlserver = 'SQL1'
     database = db_name
-    username = 'admin'
-    password = 'Bosnia66s'
+    username = read_data[0]
+    password = read_data[1]
 
     # Establish DB connections.
     conn = pyodbc.connect(
