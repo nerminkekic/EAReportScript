@@ -34,8 +34,8 @@ def send_email(file_attachment):
     msg = MIMEMultipart("alternative")
 
     # Define email recipients
-    to_email = "nerminkekic@ge.com"
-    from_email = "nerminkekic@ge.com"
+    to_email = "na@na.net"
+    from_email = "na@na.net"
 
     # Create email content
     msg["Subject"] = "EA Monthly Report"
