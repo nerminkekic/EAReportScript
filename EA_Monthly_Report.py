@@ -229,7 +229,7 @@ def send_email(file_attachment):
     to_email = ["na@na.com"
         ]
     # Define From email
-    from_email = "aspmonitoring@ge.com"
+    from_email = "na@na.com"
 
     # Create email content
     msg["Subject"] = "ASP Monthly Report {}".format(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
