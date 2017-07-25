@@ -41,30 +41,14 @@ def ea_monthly_report():
     f = Font(name="Arial", size=14, bold=True, color="FF000000")
     fill = PatternFill(fill_type="solid", start_color="00FFFF00")
 
-    work_sheet["A1"].fill = fill
-    work_sheet["B1"].fill = fill
-    work_sheet["C1"].fill = fill
-    work_sheet["D1"].fill = fill
-    work_sheet["E1"].fill = fill
-    work_sheet["F1"].fill = fill
-    work_sheet["G1"].fill = fill
-
-    work_sheet["A1"].font = f
-    work_sheet["B1"].font = f
-    work_sheet["C1"].font = f
-    work_sheet["D1"].font = f
-    work_sheet["E1"].font = f
-    work_sheet["F1"].font = f
-    work_sheet["G1"].font = f
-
-    # Set Column width
-    work_sheet.column_dimensions["A"].width = 25.0
-    work_sheet.column_dimensions["B"].width = 25.0
-    work_sheet.column_dimensions["C"].width = 25.0
-    work_sheet.column_dimensions["D"].width = 25.0
-    work_sheet.column_dimensions["E"].width = 35.0
-    work_sheet.column_dimensions["F"].width = 35.0
-    work_sheet.column_dimensions["G"].width = 35.0
+    # Format Worksheet columns
+    for L in "ABCDEFG":
+        work_sheet[L + "1"].fill = fill
+        work_sheet[L + "1"].font = f
+        if L in "ABCD":
+            work_sheet.column_dimensions[L].width = 25.0
+        if L in "EFG":
+            work_sheet.column_dimensions[L].width = 35.0
 
     # Obtain Exam Volume for all virtual archives and write the data to excel sheet.
     for archive in virtual_archives:
