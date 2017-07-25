@@ -226,10 +226,7 @@ def send_email(file_attachment):
     msg = MIMEMultipart("alternative")
 
     # Define email recipients
-    to_email = [
-        "nerminkekic@ge.com", "tai.kim@ge.com", "Connie.Moring@med.ge.com",
-        "beth.costa@med.ge.com", "eric.feingold@ge.com", "paul.macht@ge.com",
-        "frederick.yu@ge.com", "Bill.Petersen@ge.com", "Sridharan.Paidakula@med.ge.com"
+    to_email = ["na@na.com"
         ]
     # Define From email
     from_email = "aspmonitoring@ge.com"
